@@ -2,9 +2,52 @@
 {
     public class Task2
     {
-        public string Task2Function(string S, string[] B)
+        public int Solution(int[] A)
         {
-            return "t2";
+
+            if (A.Length == 1) 
+            {
+                return A.Length;
+            };
+
+            int result = A.Length;
+
+            bool proceedIteration = true;
+
+            int initialIndex = 0;
+            while (proceedIteration) 
+            {
+                int length = 0;
+                List<int> uniqueDigits = A.Distinct().ToList();
+                for (int i= initialIndex; i < A.Length; i++)
+                {
+                    if (uniqueDigits.Count() > 0)
+                    {
+                        length++;
+                        if (uniqueDigits.Contains(A[i]))
+                        {
+                            uniqueDigits.Remove(A[i]);
+                        }
+                    }
+                    else 
+                    {
+                        break;
+                    }
+                }
+                initialIndex++;
+                if ((initialIndex +1+ uniqueDigits.Count() >= A.Length) || length == uniqueDigits.Count())
+                {
+                    proceedIteration = false;
+                 }
+
+                if (length < result && uniqueDigits.Count() == 0) 
+                {
+                    result = length;
+                }
+
+            }
+
+            return  result;
         }
     }
 }
