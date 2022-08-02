@@ -1,15 +1,18 @@
 ﻿using NUnit.Framework;
+using System.Linq;
 
 namespace t3_proj.tests
 {
     public class Task3Tests
     {
-        [TestCase("300.01", new string[] { "300.00", "200.00", "100.00" }, "t3")]
-        [TestCase("1.00", new string[] { "0.05", "1.00" }, "t3")]
-        [TestCase("300.01", new string[] { "30.00", "300.00", "200.00", "100.00" }, "t3")]
-        public void Check(string excess, string[] input, string result)
+        [TestCase(new int[] { 2, 1, 3 }, 2, 3)]
+        [TestCase(new int[] { 0, 4, 3, -1 }, 2, 2)]
+        [TestCase(new int[] { 2, 1, 4 }, 3, 0)]
+        [TestCase(new int[] { 3, 3, 3 }, 3, 6)]
+        [TestCase(new int[] { 3, -3, 3 }, 0, 2)]
+        public void Check(int[] array, int average, int result)
         {
-            var actualResult = new Task3().Task3Function(excess, input);
+            var actualResult = new Task3().Task3Function(array, average);
 
             Assert.AreEqual(result, actualResult);
         }
