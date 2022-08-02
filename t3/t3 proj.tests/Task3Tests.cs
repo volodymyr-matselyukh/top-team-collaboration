@@ -12,7 +12,7 @@ namespace t3_proj.tests
         [TestCase(new int[] { 3, -3, 3 }, 0, 2)]
         public void Check(int[] array, int average, int result)
         {
-            var actualResult = new Task3().Task3Function(array, average);
+            var actualResult = new Task3().solution(array, average);
 
             Assert.AreEqual(result, actualResult);
         }

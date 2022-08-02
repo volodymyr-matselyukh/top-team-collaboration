@@ -2,16 +2,16 @@
 {
     public class Task3
     {
-        public int Task3Function(int[] array, int expectedAverage)
+        public int solution(int[] A, int S)
         {
             int result = 0;
 
-            for (int i = 1; i <= array.Length; i++)
+            for (int i = 1; i <= A.Length; i++)
             {
-                for (int j = 0; j <= array.Length - i; j++)
+                for (int j = 0; j <= A.Length - i; j++)
                 {
-                    var average = Average(array, j, i);
-                    if (average == expectedAverage) result++;
+                    var average = Average(A, j, i);
+                    if (average == S) result++;
 
                     if (result > 1000000000) return 1000000000;
                 }
