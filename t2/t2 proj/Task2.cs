@@ -5,13 +5,12 @@
         public int Solution(int[] A)
         {
 
-            if (A.Length == 1) 
+            if (A.Length == 1 || A.Length == 0) 
             {
                 return A.Length;
             };
 
             int result = A.Length;
-
             bool proceedIteration = true;
 
             int initialIndex = 0;
@@ -35,7 +34,8 @@
                     }
                 }
                 initialIndex++;
-                if ((initialIndex +1+ uniqueDigits.Count() >= A.Length) || length == uniqueDigits.Count())
+
+                if ((initialIndex + uniqueDigits.Count() >= A.Length) || length == uniqueDigits.Count())
                 {
                     proceedIteration = false;
                  }

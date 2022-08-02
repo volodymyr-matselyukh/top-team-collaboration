@@ -11,8 +11,10 @@ namespace t2_proj.tests
         [TestCase(new int[] { 1, 1, 1, 1, 1, 1, 1, 1 }, 1)]
         [TestCase(new int[] { 1, 1, 1, 1, 1, 1, 2, 3 }, 3)]
         [TestCase(new int[] { 1, 1, 1, 1, 1, 1, 2, 2 }, 2)]
+        [TestCase(new int[] { 1 }, 1)]
+        [TestCase(new int[] { }, 0)]
+        [TestCase(new int[] { 1,2,3,1,2,3,4,3,1,1,2,3,4,1 }, 4)]
 
-        //[TestCase("(())(())", true)]
         public void Check(int[] A, int result)
         {
             var actualResult = new Task2().Solution(A);
